@@ -24,4 +24,5 @@ var lengthOfLongestSubstring = function (s) {
     }
     max = Math.max(max, r - l + 1);
   }
+  return max;
 };
