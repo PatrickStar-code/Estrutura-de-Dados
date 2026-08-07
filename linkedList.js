@@ -77,6 +77,24 @@ class DoublyLinkedList {
       return valueOfTailRemove;
     }
   }
+  reverse_list() {
+    let current = this.head;
+    let temp = null;
+
+    while (current) {
+      temp = current.previous;
+      current.previous = current.next;
+      current.next = temp;
+
+      current = current.previous;
+    }
+
+    if (temp) {
+      this.head = temp.previous;
+    }
+
+    return this.head;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -130,6 +148,8 @@ while (current) {
   console.log(current.value);
   current = current.next;
 }
+console.log("\n=== Invertendo LinkedList ===");
+console.log(list.reverse_list());
 
 console.log("\n=== Removendo tudo ===");
 while (list.head) {
