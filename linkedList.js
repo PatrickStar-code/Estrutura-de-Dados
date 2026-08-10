@@ -95,6 +95,18 @@ class DoublyLinkedList {
 
     return this.head;
   }
+
+  find_center() {
+    let ahead = this.head;
+    let head = this.head;
+
+    while (ahead && ahead.next) {
+      ahead = ahead.next.next;
+      head = head.next;
+    }
+
+    return head;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -116,6 +128,9 @@ list.add_to_front(5);
 
 console.log("Head:", list.head.value);
 console.log("Tail:", list.tail.value);
+
+console.log("\n=== Encontrando o meio da lista ===");
+console.log(list.find_center());
 
 console.log("\n=== Percorrendo do início ao fim ===");
 let current = list.head;
